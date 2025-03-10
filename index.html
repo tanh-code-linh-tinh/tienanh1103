@@ -1,0 +1,373 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="./image/favicon.ico" type="image/x-icon">
+    <title>Thiệp của Tuệ Anh</title>
+    <link type="text/css" rel="stylesheet" href="./renxi/default.css">
+    <!-- Link FontAwesome để sử dụng icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="./renxi/jquery.min.js"></script>
+    <script type="text/javascript" src="./renxi/jscex.min.js"></script>
+    <script type="text/javascript" src="./renxi/jscex-parser.js"></script>
+    <script type="text/javascript" src="./renxi/jscex-jit.js"></script>
+    <script type="text/javascript" src="./renxi/jscex-builderbase.min.js"></script>
+    <script type="text/javascript" src="./renxi/jscex-async.min.js"></script>
+    <script type="text/javascript" src="./renxi/jscex-async-powerpack.min.js"></script>
+    <script type="text/javascript" src="./renxi/functions.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./renxi/love.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+    <div id="main">
+        <div id="error">Trình duyệt của bạn không được hỗ trợ. Để được hỗ trợ liên hệ daikupj@gmail.com. Hoặc sử dụng
+            (<a href="http://www.google.cn/chrome">Chrome</a>) và (<a href="http://firefox.com/download/">Firefox</a>)
+        </div>
+        <div id="wrap">
+            <div id="text" style="font-family: 'Dancing Script', cursive;">
+                <div id="code">
+                    <font color="linear-gradient(to right, #da22ff, #9733ee)"><span class="say">Chào em!</span><br>
+                        <span class="say"> </span><br>
+
+                        <span class="say"> " Tuệ Anh càng lớn càng xinh ha, lại còn học giỏi nữa.
+                        </span>
+                        <br><br>
+                        <span class="say"> Nhanh nhỉ, mới ngày nào vẫn còn là cô bé được mẹ đón đi học ở nhà anh, rồi cùng nhau chơi bài, học đàn mà bây giờ em đã lớn và trưởng thành với giao diện của 1 thiếu nữ xinh đẹp rồi.
+                        </span>
+                        <br><br>
+                        <span class="say"> Hôm nay là 8/3, anh hy vọng những điều an yên, nhẹ nhàng và ấm áp nhất sẽ đến với em - hiện tại và cả trong tương lai nữa. Chúc em có 1 kỳ thi THPT Quốc Gia may mắn, thành công rực rỡ em nhé "
+                        </span>
+                        <br><br>
+                        <span class="say"><span class="space"></span> -- t_anh --</span>
+                    </font>
+                    </p>
+                </div>
+            </div>
+            <div style="position: absolute; width: 400px; height: 100px; background: transparent; display: flex; justify-content: center; align-items: center; bottom: 100px; left: 20px;"
+                id="musicPlayer" style="visibility: hidden;"> <!-- Ẩn trình phát nhạc bằng visibility -->
+                <div style="text-align: center; padding: 20px; border-radius: 15px;">
+                    <!-- Tiêu đề với hiệu ứng typewriter -->
+                    <div id="code" style="margin-bottom: 10px; color: #ffffff; font-size: 18px;"></div>
+
+                    <!-- Ảnh bài hát -->
+                    <div
+                        style="margin-bottom: 10px; position: relative; display: inline-block; width: 180px; height: 180px; border-radius: 50%; background: linear-gradient(to right, #9796f0, #fbc7d4);">
+                        <img id="cover" src="./image/ảnhtam.jpg" alt="Music Cover"
+                            style="width: 170px; height: 170px; border-radius: 50%; position: absolute; top: 5px; left: 5px; transition: transform 0.5s linear;">
+                    </div>
+
+
+                    <!-- Thanh tiến trình -->
+                    <input type="range" id="progress" value="0"
+                        style="width: 400px; margin: 10px 0; background: turquoise;">
+
+                    <!-- Thời gian -->
+                    <div style="display: flex; justify-content: space-between; font-size: 14px; color: black;">
+                        <span id="current-time">00:00</span>
+                        <span id="duration">00:00</span>
+                    </div>
+
+                    <!-- Các nút điều khiển -->
+                    <div>
+                        <!-- Nút Thả Tim -->
+                        <button id="heart-btn"
+                            style="background: transparent; border: none; cursor: pointer; font-size: 24px; position: absolute; left:10px; bottom: -90px;">
+                            <i class="fas fa-heart"></i> <!-- Tim đen mặc định -->
+                        </button>
+                        <button id="prev"
+                            style="background: transparent; border: none; padding: 10px; margin: 10px; border-radius: 50%; cursor: pointer; font-size: 20px; color: black;">⏮</button>
+                        <button id="play-pause"
+                            style="background: transparent; border: none; padding: 10px; margin: 10px; border-radius: 50%; cursor: pointer; font-size: 20px; color: black;">▶</button>
+                        <button id="next"
+                            style="background: transparent; border: none; padding: 10px; margin: 10px; border-radius: 50%; cursor: pointer; font-size: 20px; color: black;">⏭</button>
+                        <button id="share-btn"
+                            style="background: transparent; border: none; cursor: pointer; font-size: 24px; position: absolute; right:10px; bottom: -90px;">
+                            <i class="fas fa-share-alt"></i> <!-- Icon chia sẻ màu đen -->
+                        </button>
+                        <button id="share-btn"
+                            style="background: transparent; border: none; cursor: pointer; font-size: 24px; position: absolute; right:10px; bottom: -90px;">
+                            <i class="fas fa-share-alt"></i> <!-- Icon chia sẻ màu đen -->
+                        </button>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thẻ audio sẽ phát nhạc -->
+            <audio id="audio" src="./music/MONSTAR-TÌNH-YÊU-CHẬM-TRỄ-PIANO-COVER-NGUYENN.mp3"></audio>
+            <!-- Chèn nguồn bài hát ở đây -->
+
+            <script>
+                const heartBtn = document.getElementById("heart-btn");
+
+                // Chuyển đổi trạng thái Thả Tim (Đổi màu khi bấm)
+                heartBtn.addEventListener("click", () => {
+                    heartBtn.classList.toggle("liked");
+                });
+                const shareBtn = document.getElementById("share-btn");
+
+                // Chuyển đổi trạng thái Chia Sẻ (Đổi màu khi bấm)
+                shareBtn.addEventListener("click", () => {
+                    shareBtn.classList.toggle("shared");
+                });
+
+
+                const audio = document.getElementById("audio");
+                const playPauseBtn = document.getElementById("play-pause");
+                const progress = document.getElementById("progress");
+                const currentTimeDisplay = document.getElementById("current-time");
+                const durationDisplay = document.getElementById("duration");
+                const cover = document.getElementById("cover");
+
+                let isPlaying = false;
+                let rotateInterval;
+
+                // Đảm bảo trình phát nhạc ban đầu bị ẩn
+                $('#musicPlayer').css("visibility", "hidden");
+
+                // Hiển thị trình phát nhạc khi click vào bất kỳ đâu
+                document.body.addEventListener("click", () => {
+                    if (audio.paused) {
+                        audio.play();
+                        playPauseBtn.textContent = "⏸";
+                        startRotation();
+                        $('#musicPlayer').css("visibility", "visible");  // Trình phát nhạc sẽ hiển thị khi cây bắt đầu phát triển
+                    }
+                });
+
+                // Xử lý nút Play/Pause
+                playPauseBtn.addEventListener("click", () => {
+                    if (audio.paused) {
+                        audio.play();
+                        playPauseBtn.textContent = "⏸";
+                        startRotation();
+                    } else {
+                        audio.pause();
+                        playPauseBtn.textContent = "▶";
+                        stopRotation();
+                    }
+                });
+
+                // Cập nhật thanh tiến trình khi phát nhạc
+                audio.addEventListener("timeupdate", () => {
+                    const progressPercent = (audio.currentTime / audio.duration) * 100;
+                    progress.value = progressPercent;
+                    currentTimeDisplay.textContent = formatTime(audio.currentTime);
+                    durationDisplay.textContent = formatTime(audio.duration);
+                });
+
+                // Xử lý sự kiện thay đổi thanh trượt
+                progress.addEventListener("input", () => {
+                    audio.currentTime = (progress.value / 100) * audio.duration;
+                });
+
+                // Chuyển đổi thời gian giây và phút
+                function formatTime(time) {
+                    const minutes = Math.floor(time / 60);
+                    const seconds = Math.floor(time % 60);
+                    return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
+                }
+
+                // Quay ảnh bài hát khi nhạc phát
+                function startRotation() {
+                    rotateInterval = setInterval(() => {
+                        cover.style.transform = `rotate(${(parseFloat(cover.style.transform.replace("rotate(", "").replace("deg)", "")) || 0) + 3}deg)`;
+                    }, 120); // Tốc độ quay
+                }
+
+                function stopRotation() {
+                    clearInterval(rotateInterval);
+                }
+
+                // Các nút Previous, Next (ví dụ nếu bạn muốn làm chúng hoạt động, bạn có thể thêm sự kiện click để thay đổi bài hát)
+                const prevBtn = document.getElementById("prev");
+                const nextBtn = document.getElementById("next");
+
+                prevBtn.addEventListener("click", () => {
+                    // Ví dụ: chuyển đến bài hát trước
+                    console.log("Prev clicked");
+                });
+
+                nextBtn.addEventListener("click", () => {
+                    // Ví dụ: chuyển đến bài hát tiếp theo
+                    console.log("Next clicked");
+                });
+            </script>
+
+            <canvas id="canvas" width="1100" height="680"></canvas>
+        </div>
+
+    </div>
+
+    <script>
+        (function () {
+            var canvas = $('#canvas');
+
+            if (!canvas[0].getContext) {
+                $("#error").show();
+                return false;
+            }
+
+            var width = canvas.width();
+            var height = canvas.height();
+            canvas.attr("width", width);
+            canvas.attr("height", height);
+            var opts = {
+                seed: {
+                    x: width / 2 - 20,
+                    color: "rgb(190, 26, 37)",
+                    scale: 2
+                },
+                branch: [
+                    [535, 680, 570, 250, 500, 200, 30, 100, [
+                        [540, 500, 455, 417, 340, 400, 13, 100, [
+                            [450, 435, 434, 430, 394, 395, 2, 40]
+                        ]],
+                        [550, 445, 600, 356, 680, 345, 12, 100, [
+                            [578, 400, 648, 409, 661, 426, 3, 80]
+                        ]],
+                        [539, 281, 537, 248, 534, 217, 3, 40],
+                        [546, 397, 413, 247, 328, 244, 9, 80, [
+                            [427, 286, 383, 253, 371, 205, 2, 40],
+                            [498, 345, 435, 315, 395, 330, 4, 60]
+                        ]],
+                        [546, 357, 608, 252, 678, 221, 6, 100, [
+                            [590, 293, 646, 277, 648, 271, 2, 80]
+                        ]]
+                    ]]
+                ],
+                bloom: {
+                    num: 700,
+                    width: 1080,
+                    height: 650,
+                },
+                footer: {
+                    width: 1200,
+                    height: 5,
+                    speed: 10,
+                }
+            };
+
+            var tree = new Tree(canvas[0], width, height, opts);
+            var seed = tree.seed;
+            var foot = tree.footer;
+            var hold = 1;
+
+            // Ẩn trình phát nhạc ban đầu
+            $('#musicPlayer').hide();
+
+            canvas.click(function (e) {
+                var offset = canvas.offset(), x, y;
+                x = e.pageX - offset.left;
+                y = e.pageY - offset.top;
+                if (seed.hover(x, y)) {
+                    hold = 0;
+                    canvas.unbind("click");
+                    canvas.unbind("mousemove");
+                    canvas.removeClass('hand');
+                }
+            }).mousemove(function (e) {
+                var offset = canvas.offset(), x, y;
+                x = e.pageX - offset.left;
+                y = e.pageY - offset.top;
+                canvas.toggleClass('hand', seed.hover(x, y));
+            });
+
+            var seedAnimate = eval(Jscex.compile("async", function () {
+                seed.draw();
+                while (hold) {
+                    $await(Jscex.Async.sleep(10));
+                }
+                while (seed.canScale()) {
+                    seed.scale(0.95);
+                    $await(Jscex.Async.sleep(10));
+                }
+                while (seed.canMove()) {
+                    seed.move(0, 2);
+                    foot.draw();
+                    $await(Jscex.Async.sleep(10));
+                }
+
+                // Hiển thị trình phát nhạc khi cây bắt đầu phát triển
+                $('#musicPlayer').fadeIn(500);  // Hiện ra trong 500ms
+            }));
+
+            var growAnimate = eval(Jscex.compile("async", function () {
+                do {
+                    tree.grow();
+                    $await(Jscex.Async.sleep(10));
+                } while (tree.canGrow());
+            }));
+
+            var flowAnimate = eval(Jscex.compile("async", function () {
+                do {
+                    tree.flower(2);
+                    $await(Jscex.Async.sleep(10));
+                } while (tree.canFlower());
+            }));
+
+            var moveAnimate = eval(Jscex.compile("async", function () {
+                tree.snapshot("p1", 240, 0, 610, 680);
+                while (tree.move("p1", 500, 0)) {
+                    foot.draw();
+                    $await(Jscex.Async.sleep(10));
+                }
+                foot.draw();
+                tree.snapshot("p2", 500, 0, 610, 680);
+
+                canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+                canvas.css("background", "");
+                $await(Jscex.Async.sleep(300));
+                canvas.css("background", "none");
+            }));
+
+            var jumpAnimate = eval(Jscex.compile("async", function () {
+                var ctx = tree.ctx;
+                while (true) {
+                    tree.ctx.clearRect(0, 0, width, height);
+                    tree.jump();
+                    foot.draw();
+                    $await(Jscex.Async.sleep(25));
+                }
+            }));
+
+            var textAnimate = eval(Jscex.compile("async", function () {
+                var together = new Date();
+                together.setFullYear(2018, 2, 8);
+                together.setHours(0);
+                together.setMinutes(0);
+                together.setSeconds(0);
+                together.setMilliseconds(0);
+
+                $("#code").show().typewriter();
+                $("#clock-box").fadeIn(500);
+                while (true) {
+                    timeElapse(together);
+                    $await(Jscex.Async.sleep(1000));
+                }
+            }));
+
+            var runAsync = eval(Jscex.compile("async", function () {
+                $await(seedAnimate());
+                $await(growAnimate());
+                $await(flowAnimate());
+                $await(moveAnimate());
+
+                textAnimate().start();
+
+                $await(jumpAnimate());
+            }));
+
+            runAsync().start();
+        })();
+
+    </script>
+</body>
+
+</html>
